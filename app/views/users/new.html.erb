@@ -1,0 +1,31 @@
+<h1>Sign Up</h1>
+
+<%= flash[:message] if flash[:message] %>
+<% if @user && @user.errors.any? %>
+<p> <%= @user.errors.full_messages.to_sentence %> </p>
+<% end %>
+
+<%= link_to('Sign up with Facebook!', '/auth/facebook') %>
+<br>
+<br>
+
+<%= form_for(@user) do |f| %>
+<div class="field"> 
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  </div>
+    <br>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <br>
+    <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
+    <br>
+
+  <%= f.submit "Submit" %>
+
+<% end %>
+
+
