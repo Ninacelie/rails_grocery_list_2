@@ -1,0 +1,18 @@
+<h1> Login </h1>
+
+<%= flash[:message] if flash[:message] %>
+
+<%= link_to('Log in with Facebook!', '/auth/facebook') %>
+
+<%= form_tag "/sessions" do %>
+  <p>
+  <%= label_tag "Username:" %>
+  <%= text_field_tag "username" %>
+  </p>
+  <p>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+  </p>
+<%= submit_tag "Login" %>
+<% end %>
+
