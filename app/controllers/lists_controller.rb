@@ -19,8 +19,13 @@ class ListsController < ApplicationController
 
   def update
     @list = List.find(params[:id])
-    @list.update(title: params[:list][:title], content: params [:list][:content])
+    @list.update(title: params[:list][:title], content: params[:list][:content])
     redirect_to "/lists"
+  end 
+
+  def index
+    @user = current_user
+    @lists = current_user.lists
   end 
 
   def show 
@@ -33,5 +38,4 @@ class ListsController < ApplicationController
   def list_params
     params.require(:list).permit(:title, :content)
   end 
-
-end
+end 

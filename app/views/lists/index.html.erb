@@ -1,0 +1,17 @@
+<h1> All Lists </h1>
+
+<% @lists.each do |list| %>
+<ul> 
+  <li> <%=list.title %> <%= link_to("Edit", "/lists/#{list.id}") %></li>
+</ul>
+<% end %>
+
+<%= form_tag("/logout") do %>
+<p>
+<%= submit_tag "Logout" %>
+<% end %>
+
+<%= form_tag "/users/#{@user.id}" do %>
+<p>
+<%= submit_tag "Back" %>
+<% end %>
